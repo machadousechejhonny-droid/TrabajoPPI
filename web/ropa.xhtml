@@ -1,0 +1,63 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Ropa</title>
+    </h:head>
+
+    <h:body>
+
+        <h2>Lista de Ropa</h2>
+
+        <h:form>
+
+            Buscar por nombre:
+
+            <h:inputText value="#{ropaManagedBean.nombre}">
+                <f:ajax event="keyup" render="tablaRopa"/>
+            </h:inputText>
+
+            <br/><br/>
+
+            <h:dataTable id="tablaRopa"
+                         value="#{ropaManagedBean.ropaList}"
+                         var="r"
+                         border="1">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{r.id}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Marca</f:facet>
+                    <h:outputText value="#{r.tipo}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Talla</f:facet>
+                    <h:outputText value="#{r.talla}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                    <h:outputText value="#{r.color}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Cantidad</f:facet>
+                    <h:outputText value="#{r.cantidad}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Precio</f:facet>
+                    <h:outputText value="#{r.precio}" />
+                </h:column>
+
+            </h:dataTable>
+
+        </h:form>
+
+    </h:body>
+</html>

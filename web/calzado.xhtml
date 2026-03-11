@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Calzado</title>
+    </h:head>
+
+    <h:body>
+
+        <h2>Lista de Calzado</h2>
+
+        <h:form>
+
+            Buscar por nombre:
+
+            <h:inputText value="#{calzadoManagedBean.nombre}">
+                <f:ajax event="keyup"
+                        listener="#{calzadoManagedBean.nombreChangeListener}"
+                        render="tablaCalzado"/>
+            </h:inputText>
+
+            <br/><br/>
+
+            <h:dataTable id="tablaCalzado"
+                         value="#{calzadoManagedBean.calzadoList}"
+                         var="c"
+                         border="1">
+
+                <h:column>
+                    <f:facet name="header">ID</f:facet>
+                    <h:outputText value="#{c.id}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    <h:outputText value="#{c.marca}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Talla</f:facet>
+                    <h:outputText value="#{c.talla}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Color</f:facet>
+                    <h:outputText value="#{c.color}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Cantidad</f:facet>
+                    <h:outputText value="#{c.cantidad}" />
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Precio</f:facet>
+                    <h:outputText value="#{c.precio}" />
+                </h:column>
+
+            </h:dataTable>
+
+        </h:form>
+
+    </h:body>
+</html>
